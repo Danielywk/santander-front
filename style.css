@@ -35,7 +35,8 @@ li {
     display: inline-block;
     font-size: 16px;
     vertical-align: middle;
-    height: 100%;
+    height: 45px;
+    font-family: sans-serif;
     line-height: 45px;
 }
 
@@ -51,7 +52,27 @@ li {
 
 .actions{
     width: 15%;
-    text-align: right;
+    text-align: left;
     font-size: 14px;
     font-weight: 600;
+}
+
+.actions > * {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.actions a {
+    color: #67b54b;
+}
+
+.actions button {
+    color: white;
+    background-color: #67b54b;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0;
+    border-radius: 5px;
 }
