@@ -3,6 +3,9 @@
 include("first.php");
 include("php/header.php");
 ?>
+<div class="text-center">
+  <a href="prediccion_bolsa.php" class="btn btn-primary btn-lg" style="font-size: 2em; padding: 20px 40px;">Go to stock Market Malue Prediction</a>
+</div>
         <div id="page-wrapper">
             <div id="page-inner">
               <div class="row">
@@ -33,9 +36,15 @@ include("php/header.php");
     </div>
     <!-- /. WRAPPER  -->
 
-    <div id="footer-sec">
-       Online School Fees Payment System | Developed By : <a href="" target="_blank">Create Networks NG</a>
+    <!-- Copyright-->
+    <div class="footer-copyright py-3 text-center">
+        © 2018 Copyright:
+        <a href="https://mdbootstrap.com/material-design-for-bootstrap/">
+            <strong> MDBootstrap.com</strong>
+        </a>
+        <p align="center">About the <a target="_blank" href="https://www.facebook.com/anupamhayatbd">Developer</a></p>
     </div>
+    <!--/.Copyright -->
 
    <script src="js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->

@@ -25,7 +25,7 @@
                             }
 
                              ?>
-                            <a class="btn btn-primary btn-lg " align="center" href="home_cash.php"><strong>Total Cash : </strong> <?php echo $total_cash; ?> tk.</a>
+                            <a class="btn btn-primary btn-lg " align="center" href="home_cash.php"><strong>Total Cash : </strong> <?php echo $total_cash; ?> $.</a>
 
                           </div>
 
@@ -53,7 +53,7 @@
                               $deduction = $deduction +$row["d_amount"];
                             }
                              ?>
-                            <a class="btn btn-primary btn-lg " align="center" href="dailyTransactions.php"><strong>Total Cost : </strong><?php echo $total_cost?> tk.</a>
+                            <a class="btn btn-primary btn-lg " align="center" href="dailyTransactions.php"><strong>Total Cost : </strong><?php echo $total_cost?> $.</a>
 
                           </div>
                           <div class="col-sm-3 bg-info">
@@ -74,11 +74,11 @@
                             }
 
                              ?>
-                            <a class="btn btn-primary btn-lg " align="center" href="home_payment.php"><strong>Salary Paid : </strong><?php echo $total_salary."+".$deduction; ?> tk.</a>
+                            <a class="btn btn-primary btn-lg " align="center" href="home_payment.php"><strong>Salary Paid : </strong><?php echo $total_salary."+".$deduction; ?> $.</a>
 
                           </div>
                           <div class="col-sm-3 bg-info">
-                            <a class="btn btn-primary btn-lg w-600" align="center" href="#"><strong>Extra : </strong> <?php echo $total_cash - $total_cost; ?> tk.</a>
+                            <a class="btn btn-primary btn-lg w-600" align="center" href="#"><strong>Extra : </strong> <?php echo $total_cash - $total_cost; ?> $.</a>
 
                           </div>
                         </div>
@@ -181,7 +181,7 @@
                       }
                       echo $total_paid;
                        ?>
-                        tk paid
+                        $ paid
                       </h5>
                       </div>
                       </div>
@@ -210,7 +210,7 @@
                               }
                               echo $total_received;
                                ?>
-                                tk received
+                                $ received
                                 </h5>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
 
                                       echo $total_received - $total_paid;
                                        ?>
-                                        tk
+                                        $
                                       </h5>
                                       </div>
                                     </div>
@@ -239,7 +239,7 @@
 
 
 
-  </div>
+  <!-- </div>
   <div class="col-3">
     <div class="col-md-3">
                 <div class="panel panel-danger">
@@ -261,7 +261,7 @@
                         }
                         echo $total_paid;
                          ?>
-                          tk paid
+                          $ paid
                       </h5>
                       </div>
                     </div>
@@ -269,7 +269,7 @@
             </div>
 
   </div>
-
+ -->
 </div>
 <script>
 $(document).on('click', '.panel-heading span.clickable', function (e) {

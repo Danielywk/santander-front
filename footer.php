@@ -121,7 +121,7 @@
     <!--/.Footer Links-->
 
     <!-- Copyright-->
-    <div class="footer-copyright py-3 text-center">
+    <div class=" py-3 text-center">
         © 2018 Copyright:
         <a href="https://mdbootstrap.com/material-design-for-bootstrap/">
             <strong> MDBootstrap.com</strong>

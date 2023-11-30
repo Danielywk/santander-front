@@ -1,5 +1,5 @@
 <?php
-$conn =  new mysqli("localhost","root","","payroll");
+include("php/sqlCon.php");
 
 ?>
 <?php
@@ -11,19 +11,29 @@ if(isset($_POST['submit'])!="")
     $group_id      = $_POST['group'];
     $work_type      = $_POST['work_type'];
     $work_area    = $_POST['area'];
-    $bill_date      = $_POST['bill_date'];
+    $company_type =$_POST['type'];
+
+
+
+
+    date_default_timezone_set("Asia/Dhaka");
+    $bill_date = date('Y-m-d', strtotime($_POST['given_date']));
+
+    $qty      = $_POST['qty'];
+    $rate      = $_POST['rate'];
     $bill_amount     = $_POST['bill_amount'];
+    $remark     = $_POST['remark'];
 
 
-    $sql = $conn->query("INSERT into companybill(bill_no,billsno,company_group_id,work_type,work_area,bill_date,bill_amount)
-    VALUES('$bill_no','$billsno','$group_id','$work_type','$work_area','$bill_date','$bill_amount')");
+    $sql = $conn->query("INSERT into companybill(bill_no,billsno,company_group_id,work_type,work_area,square_fit,rate,bill_date,bill_amount,remark)
+    VALUES('$bill_no','$billsno','$group_id','$work_type','$work_area','$qty','$rate','$bill_date','$bill_amount','$remark')");
 
     if($sql)
     {
         ?>
         <script>
-            alert('Company Bill has been successfully added.');
-            window.location.href='home_bill.php?page=emp_list';
+          //  alert('Company Bill has been successfully added.');//
+            window.location.href="edit_bill.php?billsno=<?php echo $billsno ?>";
         </script>
         <?php
     }
@@ -33,7 +43,7 @@ if(isset($_POST['submit'])!="")
         ?>
         <script>
             alert('Invalid.');
-            window.location.href='home_bill.php';
+            window.location.href="edit_bill.php?billsno=<?php echo $billsno ?>";
         </script>
         <?php
     }
@@ -47,6 +57,14 @@ if(isset($_POST['submitbill'])!="")
 {
     $bill_id      = $_POST['bill_id'];
     $company_id      = $_POST['company'];
+    $type = $_POST['type'];
+
+    if($type == "1"){
+        $location = "home_bill.php";
+    }
+    else if($type == "2"){
+        $location = "home_billThirdparty.php";
+    }
 
 
     $sql = $conn->query("INSERT into bill(bill_id,company_id)VALUES('$bill_id','$company_id')");
@@ -55,8 +73,8 @@ if(isset($_POST['submitbill'])!="")
     {
         ?>
         <script>
-            alert('Company Bill has been successfully added.');
-            window.location.href='home_bill.php?page=emp_list';
+            //alert('Company Bill has been successfully added.');//
+            window.location.href="<?php echo $location; ?>";
         </script>
         <?php
     }
@@ -66,7 +84,7 @@ if(isset($_POST['submitbill'])!="")
         ?>
         <script>
             alert('Invalid.');
-            window.location.href='home_bill.php';
+            window.location.href='<?php echo $location; ?>';
         </script>
         <?php
     }
@@ -108,6 +126,52 @@ if(isset($_POST['setAsPaid'])!="")
         <script>
             alert('Invalid.');
             window.location.href='home_bill.php';
+        </script>
+        <?php
+    }
+}
+?>
+
+<?php
+
+if(isset($_POST['submitnew'])!="")
+{
+    $s_id     = $_POST['s_id'];
+    $remark      = $_POST['remark'];
+    date_default_timezone_set("Asia/Dhaka");
+    $receive_amount     = $_POST['received_amount'];
+    $received_date = date('Y-m-d', strtotime($_POST['received_date']));
+    $due =$_POST['due'];
+
+
+    $query2 = "SELECT receive_amount from companybill where s_id = '".$s_id."'";
+    $q2 = $conn->query($query2);
+    while($row2 = $q2->fetch_assoc()){
+        $totalbill = $totalbill+ $row2["receive_amount"];
+    }
+
+    $totalbill = $totalbill + $receive_amount;
+
+    $sqlInsert = $conn->query("INSERT into receivedbill(s_id,bill_date,amount,remark)VALUES('$s_id','$received_date','$receive_amount','$remark')");
+
+    $sqlUpdate = $conn->query("UPDATE companybill SET remark='$remark', pay_status='2', receive_date = '$received_date', receive_amount = '$totalbill', reduced='$due'  where s_id = '".$s_id."'");
+
+    if($sqlInsert && $sqlUpdate)
+    {
+        ?>
+        <script>
+            alert('Company Bill has been successfully updated.');
+            window.location.href="view_bill.php?bill_no=<?php echo $s_id ?>";
+        </script>
+        <?php
+    }
+
+    else
+    {
+        ?>
+        <script>
+            alert('Invalid.');
+            window.location.href="view_bill.php?bill_no=<?php echo $s_id ?>";
         </script>
         <?php
     }
