@@ -1,4 +1,4 @@
-?php
+<?php
 include("php/dbconnect.php");
 include("php/checklogin.php");
 $errormsg= '';
