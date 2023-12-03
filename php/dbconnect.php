@@ -14,6 +14,13 @@ DEFINE ('DB_NAME', 'payroll');
 
 date_default_timezone_set('Asia/Calcutta');
 $conn =  new mysqli(DB_HOST,DB_USER,DB_PSWD,DB_NAME);
-if($conn->connect_error)
-die("Failed to connect database ".$conn->connect_error );
+try {
+    if ($conn->connect_error) {
+        throw new Exception("Failed to connect to database: " . $conn->connect_error);
+    }
+
+    // Resto del código para operaciones con la base de datos...
+} catch (Exception $e) {
+    die("Error: " . $e->getMessage());
+}
 ?>
