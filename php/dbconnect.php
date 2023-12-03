@@ -5,7 +5,7 @@ session_start();
 $siteName = "Cipet.in";
 
 //DEFINE("BASE_URL","http://cipetbhopal.com/");
-DEFINE("BASE_URL","http://http://54.209.23.44/rainbow/");
+DEFINE("BASE_URL","http://54.209.23.44/rainbow/");
 
 DEFINE ('DB_USER', 'root');
 DEFINE ('DB_PSWD', 'isaias');
