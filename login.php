@@ -15,13 +15,16 @@ $error='All fields are required';
 
 $sql = "select * from user where username='".$username."' and password = '".md5($password)."'";
 $q = $conn->query($sql);
+if (!$q) {
+    die('Error en la consulta: ' . $conn->error);
+}
 if($q->num_rows==1)
 {
 $res = $q->fetch_assoc();
 $_SESSION['rainbow_username']=$res['username'];
 $_SESSION['rainbow_uid']=$res['id'];
 //$_SESSION['rainbow_name']=$res['name'];
-echo '<script type="text/javascript"> window.location.replace("home_company.php"); </script>';
+echo '<script type="text/javascript"> window.location.replace("index.php"); </script>';
 
 }else
 {
