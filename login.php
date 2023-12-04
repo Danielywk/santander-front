@@ -20,8 +20,8 @@ if($q->num_rows==1)
 $res = $q->fetch_assoc();
 $_SESSION['rainbow_username']=$res['username'];
 $_SESSION['rainbow_uid']=$res['id'];
-$_SESSION['rainbow_name']=$res['name'];
-echo '<script type="text/javascript">window.location="54.209.23.44/index.php"; </script>';
+//$_SESSION['rainbow_name']=$res['name'];
+echo '<script type="text/javascript"> window.location.replace("http://54.209.23.44:9090/index.php"); </script>';
 
 }else
 {

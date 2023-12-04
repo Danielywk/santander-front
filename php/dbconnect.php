@@ -1,11 +1,11 @@
 <?php
-error_reporting(0);
-ob_start();
-session_start();
-$siteName = "Cipet.in";
+//error_reporting(0);
+//ob_start();
+//session_start();
+//$siteName = "Cipet.in";
 
 //DEFINE("BASE_URL","http://cipetbhopal.com/");
-DEFINE("BASE_URL","http://54.209.23.44/rainbow/");
+DEFINE("BASE_URL","http://localhost/rainbow/");
 
 DEFINE ('DB_USER', 'root');
 DEFINE ('DB_PSWD', 'isaias');
